@@ -386,6 +386,7 @@ class CLIAgentSetupMixin:
                 provider_require_parameters=self._provider_require_params,
                 provider_data_collection=self._provider_data_collection,
                 provider_quantizations=self._provider_quantizations,
+                provider_max_price=self._provider_max_price,
                 openrouter_min_coding_score=self._openrouter_min_coding_score,
                 session_id=self.session_id,
                 platform="cli",

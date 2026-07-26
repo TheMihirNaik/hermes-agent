@@ -187,6 +187,8 @@ def _provider_preferences_for_agent(agent) -> Dict[str, Any]:
         preferences["data_collection"] = agent.provider_data_collection
     if agent.provider_quantizations:
         preferences["quantizations"] = agent.provider_quantizations
+    if agent.provider_max_price:
+        preferences["max_price"] = agent.provider_max_price
     return preferences
 
 

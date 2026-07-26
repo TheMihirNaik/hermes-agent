@@ -1970,6 +1970,14 @@ class TestBuildApiKwargs:
         kwargs = agent._build_api_kwargs(messages)
         assert kwargs["extra_body"]["provider"]["quantizations"] == ["fp8", "fp16", "bf16"]
 
+    def test_provider_max_price_injected(self, agent):
+        agent.provider = "openrouter"
+        agent.base_url = "https://openrouter.ai/api/v1"
+        agent.provider_max_price = {"prompt": 1.0, "completion": 2.0}
+        messages = [{"role": "user", "content": "hi"}]
+        kwargs = agent._build_api_kwargs(messages)
+        assert kwargs["extra_body"]["provider"]["max_price"] == {"prompt": 1.0, "completion": 2.0}
+
     def test_provider_preferences_drop_invalid_sort(self, agent):
         agent.provider = "openrouter"
         agent.base_url = "https://openrouter.ai/api/v1"
