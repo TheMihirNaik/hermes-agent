@@ -338,6 +338,7 @@ def _process_single_prompt(
             providers_order=config.get("providers_order"),
             provider_sort=config.get("provider_sort"),
             provider_quantizations=config.get("provider_quantizations"),
+            provider_max_price=config.get("provider_max_price"),
             openrouter_min_coding_score=config.get("openrouter_min_coding_score"),
             max_tokens=config.get("max_tokens"),
             reasoning_config=config.get("reasoning_config"),
@@ -549,6 +550,7 @@ class BatchRunner:
         providers_order: List[str] = None,
         provider_sort: str = None,
         provider_quantizations: List[str] = None,
+        provider_max_price: dict = None,
         openrouter_min_coding_score: Optional[float] = None,
         max_tokens: int = None,
         reasoning_config: Dict[str, Any] = None,
@@ -600,6 +602,7 @@ class BatchRunner:
         self.providers_order = providers_order
         self.provider_sort = provider_sort
         self.provider_quantizations = provider_quantizations
+        self.provider_max_price = provider_max_price
         self.openrouter_min_coding_score = openrouter_min_coding_score
         self.max_tokens = max_tokens
         self.reasoning_config = reasoning_config
@@ -899,6 +902,7 @@ class BatchRunner:
             "providers_order": self.providers_order,
             "provider_sort": self.provider_sort,
             "provider_quantizations": self.provider_quantizations,
+            "provider_max_price": self.provider_max_price,
             "openrouter_min_coding_score": self.openrouter_min_coding_score,
             "max_tokens": self.max_tokens,
             "reasoning_config": self.reasoning_config,
